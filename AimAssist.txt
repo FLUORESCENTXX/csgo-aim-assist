@@ -1,0 +1,31 @@
+#Region "Forward/Sidemove fix"
+                    If GetAsyncKeyState(Keys.W) Then
+                        WriteInt(Mainframe.client_dll + Offsets.dwForceForward, 4, 4)
+                        WriteInt(Mainframe.client_dll + Offsets.dwForceBackward, 4, 3)
+                    Else
+                        WriteInt(Mainframe.client_dll + Offsets.dwForceBackward, 4, 4)
+                    End If
+ 
+                    If GetAsyncKeyState(Keys.S) Then
+                        WriteInt(Mainframe.client_dll + Offsets.dwForceBackward, 4, 4)
+                        WriteInt(Mainframe.client_dll + Offsets.dwForceForward, 4, 3)
+                    Else
+                        WriteInt(Mainframe.client_dll + Offsets.dwForceForward, 4, 4)
+                    End If
+ 
+                    If GetAsyncKeyState(Keys.A) Then
+                        WriteInt(Mainframe.client_dll + Offsets.dwForceLeft, 4, 4)
+                        WriteInt(Mainframe.client_dll + Offsets.dwForceRight, 4, 3)
+                    Else
+                        WriteInt(Mainframe.client_dll + Offsets.dwForceRight, 4, 4)
+                    End If
+ 
+ 
+                    If GetAsyncKeyState(Keys.D) Then
+                        WriteInt(Mainframe.client_dll + Offsets.dwForceRight, 4, 4)
+                        WriteInt(Mainframe.client_dll + Offsets.dwForceLeft, 4, 3)
+                    Else
+                        WriteInt(Mainframe.client_dll + Offsets.dwForceLeft, 4, 4)
+                    End If
+          
+#End Region
